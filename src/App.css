@@ -1,0 +1,19 @@
+.form-container{
+  max-width: 500px;
+}
+
+.errorMessage{
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.tableText{
+  font-size: 1em;
+}
+
+
+@media screen and (max-width: 449px) {
+  .tableText{
+    font-size: 0.8em;
+  }
+}
