@@ -1,20 +1,23 @@
 export function getDateInit() {
   let dateAct = new Date();
 
-  // Obtener el día
-  let dia = dateAct.getDate();
+  // Get the day
+  let day = dateAct.getDate();
 
-  // Obtener el mes (se indexa desde 0, por lo que se debe sumar 1)
-  let mes = dateAct.getMonth() + 1;
+  // Get the month (indexed from 0, so we need to add 1)
+  let month = dateAct.getMonth() + 1;
 
-  // Obtener el año
-  let año = dateAct.getFullYear();
+  // Get the year
+  let year = dateAct.getFullYear();
 
-  // Obtener la hora
-  let hora = dateAct.getHours();
+  // Get the hour
+  let hour = dateAct.getHours().toString().padStart(2, "0");
 
-  // Obtener los minutos
-  let minutos = dateAct.getMinutes();
+  // Get the minutes
+  let minutes = dateAct.getMinutes().toString().padStart(2, "0");
 
-  return { complete: `${dia}/${mes}/${año} ${hora}:${minutos}`, day:  `${dia}/${mes}/${año}`};
+  return {
+    complete: `${day}/${month}/${year} ${hour}:${minutes}`,
+    day: `${day}/${month}/${year}`
+  };
 }

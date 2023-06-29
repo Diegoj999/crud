@@ -1,30 +1,32 @@
-export const validateForm = (name, dni) => {
-  let isValid = true;
-  let nameError = "";
-  let dniError = "";
+export const validateForm = (name, dni, occ) => {
+  let errors = {}
+  const nameRegex = /^[a-zA-Z\s]+$/;
+  const dniRegex = /^\d{8}$/
 
   if (name.trim() === "") {
-    nameError = "El nombre es requerido";
-    isValid = false;
+    errors.name = "El nombre es requerido";
   } else if (name.length < 4) {
-    nameError = "El nombre tiene que tener al menos 4 caracteres";
-    isValid = false;
-  } else if (!/^[a-zA-Z\s]+$/.test(name)) {
-    nameError = "El nombre solo debe contener letras y espacios";
-    isValid = false;
+    errors.name = "El nombre tiene que tener al menos 4 caracteres";
+  } else if (!nameRegex.test(name)) {
+    errors.name = "El nombre solo debe contener letras y espacios";
   }
 
   if (dni.trim() === "") {
-    dniError = "El DNI es requerido";
-    isValid = false;
-  } else if (!/^\d{8}$/.test(dni)) {
-    dniError = "El DNI debe contener 8 números";
-    isValid = false;
+    errors.dni = "El DNI es requerido";
+  } else if (!dniRegex.test(dni)) {
+    errors.dni = "El DNI debe contener 8 números";
   }
 
-  return {
-    isValid,
-    nameError,
-    dniError,
-  };
+  if (occ.trim() === "") {
+    errors.occ = "La ocupación es requerida";
+  }
+
+ 
+  let nameValidated =  errors?.name ? errors.name : "";
+  let dniValidated =  errors?.dni ? errors.dni : "";
+  let occValidated =  errors?.occ ? errors.occ : "";
+
+  const errorsFix = {...errors, nameValidated, dniValidated, occValidated}
+
+  return errorsFix
 };
