@@ -1,6 +1,6 @@
 export const validateForm = (name, dni, occ) => {
   let errors = {}
-  const nameRegex = /^[a-zA-Z\s]+$/;
+  const nameRegex = /^[a-zA-Z\u00C0-\u017F\s]+$/;
   const dniRegex = /^\d{8}$/
 
   if (name.trim() === "") {

@@ -13,35 +13,35 @@ const Form = ({
   return (
     <div className="d-flex flex-column container">
       <Link className="btn btn-primary mx-auto my-5" to={"/"}>
-        <i className="fa fa-minus mx-1" aria-hidden="true"></i>Back
+        <i className="fa fa-minus mx-1" aria-hidden="true"></i>Volver
       </Link>
       <div className="row">
         <div className="col">
           <form
-            className="form-container  mx-auto border"
+            className="form-container mx-auto border"
             onSubmit={handleSubmit}
           >
             <div
               style={{ height: "2em", background: "#050d66" }}
               className="display-6 text-white"
             >
-              <p className="text-center pt-3">Contact Form</p>
+              <p className="text-center pt-3">{isEdit ? "Editar" : "Crear"} Usuario</p>
             </div>
 
             <div className="mx-4 mt-4">
               <p style={{ color: "#050d66", fontWeight: "bold" }}>
-                {isEdit ? "Edit" : "Create"} User in the next fields
+                {isEdit ? "Editar" : "Crear"} usuario en los siguientes campos:
               </p>
             </div>
             <div className="py-3 mx-3">
-              <label className="form-label">Name:</label>
+              <label className="form-label">Nombre:</label>
               <input
                 value={userData.name}
                 onChange={handleUserDataChange}
                 name="name"
                 type="text"
                 className="form-control"
-                placeholder="Enter user.."
+                placeholder="Escribe el nombre.."
                 required
               />
             </div>
@@ -56,7 +56,7 @@ const Form = ({
                 type="number"
                 name="dni"
                 className="form-control"
-                placeholder="Enter DNI.."
+                placeholder="Escribe el DNI.."
                 required
               />
             </div>
@@ -73,7 +73,7 @@ const Form = ({
                 name="occ"
                 required
               >
-                <option value="">Open this select menu</option>
+                <option value="">Abrir el menu</option>
                 <option value="Junior_Developer">Junior Developer</option>
                 <option value="Semis-Senior_Developer">
                   Semi-Senior Developer
@@ -92,7 +92,7 @@ const Form = ({
                 className="btn btn-lg btn-primary"
                 disabled={isDisabled}
               >
-                Send
+                {isEdit ? "Editar" : "Crear"} 
               </button>
             </div>
           </form>

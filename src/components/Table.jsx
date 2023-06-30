@@ -1,4 +1,4 @@
-import { useContext} from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CrudContext } from "../context/crudContext";
 import ReactPaginate from "react-paginate";
@@ -13,7 +13,7 @@ const Table = () => {
     totalPages,
     handlePageChange,
     handleSubmit,
-    confirmDelete
+    confirmDelete,
   } = useTableLogic(users);
 
   return (
@@ -26,17 +26,18 @@ const Table = () => {
             </Link>
           </div>
 
-          {users.length === 0 ? (
+          { users.length > 0 && <form onSubmit={handleSubmit} className="d-flex">
+            <input
+              className="my-4 rounded p-1 form-control border-1 w-25"
+              placeholder="Buscar.."
+              name="search"
+            />
+          </form>}
+
+          {filteredData.length === 0 ? (
             <h1 className="text-center">Sin resultado</h1>
           ) : (
             <div className="table-responsive">
-              <form onSubmit={handleSubmit} className="d-flex">
-                <input
-                  className="my-4 rounded p-1 form-control border-1 w-25"
-                  placeholder="Buscar.."
-                  name="search"
-                />
-              </form>
               <table className="table table-striped">
                 <thead className="table-color text-white ">
                   <tr>
