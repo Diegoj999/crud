@@ -2,10 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { CrudContext } from "../context/crudContext";
 import Swal from "sweetalert2";
 
-
 const useTableLogic = (data) => {
-
-    const { deleteUsers } = useContext(CrudContext);
+  const { deleteUsers } = useContext(CrudContext);
+  const pageSize = 10; // Tamaño de página deseado
 
   const [currentPage, setCurrentPage] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
@@ -28,7 +27,6 @@ const useTableLogic = (data) => {
     });
   };
 
-
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
   };
@@ -45,7 +43,6 @@ const useTableLogic = (data) => {
     handleSearch(searchValue);
   };
 
-
   useEffect(() => {
     const filtered = data.filter((item) =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -56,12 +53,12 @@ const useTableLogic = (data) => {
 
   return {
     currentPage,
-    filteredData: filteredData.slice(currentPage * 10, (currentPage + 1) * 10),
-    totalPages: Math.ceil(filteredData.length / 10),
+    filteredData: filteredData.slice(currentPage * pageSize, (currentPage + 1) * pageSize),
+    totalPages: Math.ceil(filteredData.length / pageSize),
     handlePageChange,
     handleSearch,
     handleSubmit,
-    confirmDelete
+    confirmDelete,
   };
 };
 

@@ -49,10 +49,22 @@ background: linear-gradient(90deg, rgba(20,108,221,1) 0%, rgba(42,177,212,1) 97%
   color: black;
 }
 
+.width-search{
+  width: 30%;
+  outline: none;
+  border: 1px solid #070a0f60
+
+}
 
 @media screen and (max-width: 449px) {
   .tableText{
     font-size: 0.8em;
+  }
+}
+ 
+@media screen and (max-width: 449px) {
+  .width-search{
+    width: 100%;
   }
 }
  

@@ -16,6 +16,11 @@ const Table = () => {
     confirmDelete,
   } = useTableLogic(users);
 
+  console.log(filteredData)
+  console.log(currentPage)
+  console.log(totalPages)
+ 
+
   return (
     <div className="container">
       <div className="row">
@@ -26,9 +31,9 @@ const Table = () => {
             </Link>
           </div>
 
-          { users.length > 0 && <form onSubmit={handleSubmit} className="d-flex">
+          { users.length > 0 && <form onSubmit={handleSubmit} >
             <input
-              className="my-4 rounded p-1 form-control border-1 w-25"
+              className="my-4 rounded p-1  border-1 width-search"
               placeholder="Buscar.."
               name="search"
             />
@@ -52,7 +57,7 @@ const Table = () => {
                 </thead>
                 <tbody>
                   {filteredData
-                    .slice(currentPage * 10, (currentPage + 1) * 10)
+                
                     .map((user) => {
                       return (
                         <tr key={user.id}>
