@@ -49,12 +49,16 @@ background: linear-gradient(90deg, rgba(20,108,221,1) 0%, rgba(42,177,212,1) 97%
   color: black;
 }
 
-.width-search{
+.width-search {
   width: 30%;
   outline: none;
-  border: 1px solid #070a0f60
-
+  border: 1px solid #070a0f;
 }
+
+.width-search:focus {
+  border: 1px solid #0d6efd;
+}
+
 
 @media screen and (max-width: 449px) {
   .tableText{

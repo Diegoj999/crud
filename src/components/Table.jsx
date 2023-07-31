@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { CrudContext } from "../context/crudContext";
 import ReactPaginate from "react-paginate";
 import useTableLogic from "../hooks/useTableLogic";
+import { formattedNumber } from "../helper/utils";
 
 const Table = () => {
   const { users } = useContext(CrudContext);
 
   const {
-    currentPage,
     filteredData,
     totalPages,
     handlePageChange,
@@ -16,9 +16,6 @@ const Table = () => {
     confirmDelete,
   } = useTableLogic(users);
 
-  console.log(filteredData)
-  console.log(currentPage)
-  console.log(totalPages)
  
 
   return (
@@ -65,7 +62,7 @@ const Table = () => {
                             <div className="mx-2">{user.name}</div>
                           </td>
                           <td>{user.occ.replace(/_/g, " ")}</td>
-                          <td>{user.dni}</td>
+                          <td>{formattedNumber(user.dni)}</td>
                           <td>{user.date}</td>
                           <td style={{ width: "10%" }}>
                             <div>

@@ -22,14 +22,14 @@ const Form = ({
             onSubmit={handleSubmit}
           >
             <div
-              style={{ height: "2em", background: "#050d66" }}
+              style={{ height: "2em", background: "rgb(20,108,221)" }}
               className="display-6 text-white"
             >
               <p className="text-center pt-3">{isEdit ? "Editar" : "Crear"} Usuario</p>
             </div>
 
             <div className="mx-4 mt-4">
-              <p style={{ color: "#050d66", fontWeight: "bold" }}>
+              <p style={{ color: "rgb(20,108,221)", fontWeight: "bold" }}>
                 {isEdit ? "Editar" : "Crear"} usuario en los siguientes campos:
               </p>
             </div>
@@ -88,7 +88,7 @@ const Form = ({
             <div className="d-flex justify-content-center my-3">
               <button
                 type="submit"
-                style={{ background: "#050d66" }}
+                style={{ background: "rgb(20,108,221)" }}
                 className="btn btn-lg btn-primary"
                 disabled={isDisabled}
               >
